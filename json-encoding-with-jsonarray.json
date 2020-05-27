@@ -1,0 +1,31 @@
+import 'dart:convert';
+
+void main() {
+  try {
+    var resBody = {};
+    resBody["count"] = "123456";
+    var user = {};
+    //Map<String, dynamic> toJson();
+
+    var dataMsg = {
+      "message_id": "123",
+      "message_date": "27/05/2020",
+      "message_from": "yash",
+      "message_body": "Content of the message"
+    };
+
+    // array
+    List data = [dataMsg, dataMsg, dataMsg];
+
+    Map<String, dynamic> toJson() => {
+          "data": data
+        };
+
+    resBody["data"] = toJson();
+    user["messages"] = resBody;
+    String str = jsonEncode(user);
+    print(str);
+  } catch (e) {
+    print(e);
+  }
+}
