@@ -1,0 +1,26 @@
+import 'dart:convert';
+
+void main() {
+  try {
+  var resBody = {};
+  resBody["email"] = "employerA@gmail.com";
+  resBody["password"] = "admin123";
+  var user = {};
+  //Map<String, dynamic> toJson(); 
+    
+    Map<String, dynamic> toJson() => {
+    "first_name": "firstName",
+    "last_name": "lastName",
+    "website": "website"
+  };  
+    
+  
+  resBody["data"]  = toJson();
+  user["user"] = resBody;
+  String str = jsonEncode(user);
+  print(str);
+  } catch(e) {
+    print(e);
+  }
+}
+
